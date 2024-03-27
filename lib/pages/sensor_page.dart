@@ -25,11 +25,7 @@ class SensorsPage extends StatelessWidget {
         ),
         // Body
         body: const TabBarView(
-          children: [
-            AccelerometerTab(),
-            GyroscopeTab(),
-            MagnetometerTab(),
-          ],
+          children: [AccelerometerTab(), GyroscopeTab(), MagnetometerTab()],
         ),
       ),
     );

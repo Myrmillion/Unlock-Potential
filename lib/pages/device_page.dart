@@ -25,11 +25,6 @@ class _DevicePageState extends State<DevicePage> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // AppBar
