@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/widgets/title_value_widget.dart';
 
 class AccelerometerTab extends StatefulWidget {
   const AccelerometerTab({super.key});
@@ -39,20 +40,13 @@ class _AccelerometerTabState extends State<AccelerometerTab> {
   }
 
   Widget buildData(List<double> data) {
-    final textTheme = Theme.of(context).textTheme;
     return Positioned.fill(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Spacer(),
-          Text("X", style: textTheme.displayMedium),
-          Text("${data[0]}", style: textTheme.headlineMedium),
-          const Spacer(),
-          Text("Y", style: textTheme.displayMedium),
-          Text("${data[1]}", style: textTheme.headlineMedium),
-          const Spacer(),
-          Text("Z", style: textTheme.displayMedium),
-          Text("${data[2]}", style: textTheme.headlineMedium),
-          const Spacer(),
+          TitleValueWidget(title: "X", value: data[0]),
+          TitleValueWidget(title: "Y", value: data[1]),
+          TitleValueWidget(title: "Z", value: data[2]),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlock_potential/utils.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -60,9 +61,8 @@ class DrawerWidget extends StatelessWidget {
                 strokeWidth: 3.0,
                 child: IconButton(
                   icon: const Icon(Icons.lightbulb),
-                  onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Work in progress... !')),
-                  ),
+                  onPressed: () => Utils.simpleSnackBar(
+                      context, 'Work in progress, come back later... !'),
                 ),
               ),
             ],

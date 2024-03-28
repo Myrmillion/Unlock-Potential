@@ -41,7 +41,8 @@ class Utils {
     }
   }
 
-  static void showSnackBar(BuildContext context, String message) {
+  /// A method to clear all snackbar messages before showing a new one.
+  static void simpleSnackBar(BuildContext context, String message) {
     ScaffoldMessenger.of(context)
       ..clearSnackBars()
       ..showSnackBar(SnackBar(content: Text(message)));

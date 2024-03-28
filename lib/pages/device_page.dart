@@ -55,7 +55,7 @@ class _DevicePageState extends State<DevicePage> {
       ),
       // FloatingActionButton
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() {}),
+        onPressed: () => setState(() {}), // Refresh
         child: const Icon(Icons.refresh),
       ),
     );

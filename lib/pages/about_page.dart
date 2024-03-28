@@ -31,7 +31,7 @@ class AboutPage extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             TextButton(
-              onPressed: () => Utils.showSnackBar(
+              onPressed: () => Utils.simpleSnackBar(
                 context,
                 'This app is for academic purposes only.',
               ),

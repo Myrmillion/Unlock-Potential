@@ -1,6 +1,7 @@
 import 'package:battery_plus/battery_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/widgets/title_value_widget.dart';
 
 class BatteryPage extends StatefulWidget {
   const BatteryPage({super.key});
@@ -14,8 +15,6 @@ class _BatteryPageState extends State<BatteryPage> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return Scaffold(
       // AppBar
       appBar: AppBar(
@@ -37,17 +36,9 @@ class _BatteryPageState extends State<BatteryPage> {
                         future: battery.batteryLevel,
                         builder: (_, snapshot) => Utils.futureBuilding(
                           snap: snapshot,
-                          builder: (level) => Column(
-                            children: [
-                              Text(
-                                "Battery level",
-                                style: textTheme.displayMedium,
-                              ),
-                              Text(
-                                "$level%",
-                                style: textTheme.headlineMedium,
-                              ),
-                            ],
+                          builder: (level) => TitleValueWidget(
+                            title: "Battery level",
+                            value: "$level%",
                           ),
                         ),
                       ),
@@ -55,17 +46,9 @@ class _BatteryPageState extends State<BatteryPage> {
                         future: battery.isInBatterySaveMode,
                         builder: (_, snapshot) => Utils.futureBuilding(
                           snap: snapshot,
-                          builder: (isSaving) => Column(
-                            children: [
-                              Text(
-                                "Save mode",
-                                style: textTheme.displayMedium,
-                              ),
-                              Text(
-                                isSaving ? 'Enabled' : 'Disabled',
-                                style: textTheme.headlineMedium,
-                              ),
-                            ],
+                          builder: (isSaving) => TitleValueWidget(
+                            title: "Save mode",
+                            value: isSaving ? 'Enabled' : 'Disabled',
                           ),
                         ),
                       ),
@@ -76,7 +59,7 @@ class _BatteryPageState extends State<BatteryPage> {
                   bottom: 0.5,
                   right: 8.0,
                   child: FloatingActionButton(
-                    onPressed: () => setState(() {}),
+                    onPressed: () => setState(() {}), // Refresh
                     child: const Icon(Icons.refresh),
                   ),
                 ),
@@ -91,12 +74,9 @@ class _BatteryPageState extends State<BatteryPage> {
                 stream: battery.onBatteryStateChanged,
                 builder: (_, snapshot) => Utils.streamBuilding(
                   snap: snapshot,
-                  builder: (state) => Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Battery status", style: textTheme.displayMedium),
-                      Text(state.name, style: textTheme.headlineMedium)
-                    ],
+                  builder: (state) => TitleValueWidget(
+                    title: "Battery status",
+                    value: state.name,
                   ),
                 ),
               ),
