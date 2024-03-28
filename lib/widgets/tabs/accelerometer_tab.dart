@@ -48,7 +48,6 @@ class _AccelerometerTabState extends State<AccelerometerTab> {
             child: Icon(Icons.info_outline),
           ),
           const SizedBox(width: 8.0),
-          //
           OutlinedButton(
             // TODO 3.2 : Au clic du bouton, inverser la valeur de useRaw, en
             // faisant en sorte que le widget se reconstruise !
