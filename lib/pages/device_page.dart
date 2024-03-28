@@ -13,7 +13,7 @@ class DevicePage extends StatefulWidget {
 class _DevicePageState extends State<DevicePage> {
   static final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
 
-  Future<Map<String, dynamic>?> getDeviceInfo() async {
+  Future<Map<String, dynamic>?> fetchDeviceInfo() async {
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return (await deviceInfo.androidInfo).data;
@@ -34,7 +34,7 @@ class _DevicePageState extends State<DevicePage> {
       ),
       // Body
       body: FutureBuilder(
-        future: getDeviceInfo(),
+        future: fetchDeviceInfo(),
         builder: (_, snapshot) => Utils.futureBuilding(
           snap: snapshot,
           builder: (data) {

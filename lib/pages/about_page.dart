@@ -25,7 +25,10 @@ class AboutPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             const SizedBox(height: 50.0),
-            const Text('App Version: 0.1.0', style: TextStyle(fontSize: 16)),
+            const Text(
+              'App Version: 0.1.0', // Eventual todo : use package_info_plus.
+              style: TextStyle(fontSize: 16),
+            ),
             const Text(
               'Contact us: unlock@potential.com',
               style: TextStyle(fontSize: 16),
