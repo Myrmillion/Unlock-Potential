@@ -3,6 +3,10 @@ import 'package:unlock_potential/widgets/tabs/accelerometer_tab.dart';
 import 'package:unlock_potential/widgets/tabs/gyroscope_tab.dart';
 import 'package:unlock_potential/widgets/tabs/magnetometer_tab.dart';
 
+// TODO 4.0 : Le laboratoire est terminé. N'hésitez pas à explorer le projet
+// "Unlock Potential" pour voir comment certains éléments ont été implémentés et
+// comment vous pourriez les réutiliser dans vos propres projets.
+
 class SensorsPage extends StatelessWidget {
   const SensorsPage({super.key});
 
