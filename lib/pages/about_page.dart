@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlock_potential/utils.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -24,26 +25,17 @@ class AboutPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             const SizedBox(height: 50.0),
-            const Text(
-              'App Version: 0.1.0',
-              style: TextStyle(fontSize: 16),
-            ),
+            const Text('App Version: 0.1.0', style: TextStyle(fontSize: 16)),
             const Text(
               'Contact us: unlock@potential.com',
               style: TextStyle(fontSize: 16),
             ),
             TextButton(
-              onPressed: () => ScaffoldMessenger.of(context)
-                ..clearSnackBars()
-                ..showSnackBar(
-                  const SnackBar(
-                    content: Text('This app is for academic purposes only.'),
-                  ),
-                ),
-              child: const Text(
-                'Terms of Use',
-                style: TextStyle(fontSize: 16),
+              onPressed: () => Utils.showSnackBar(
+                context,
+                'This app is for academic purposes only.',
               ),
+              child: const Text('Terms of Use', style: TextStyle(fontSize: 16)),
             ),
           ],
         ),
