@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// A cubit to manage the theme of the application.
 class ThemeCubit extends Cubit<ThemeState> {
-  ThemeCubit() : super(const Initial()) {
+  ThemeCubit() : super(const ThemeInit()) {
     _init();
   }
 
@@ -50,8 +50,8 @@ sealed class ThemeState extends Equatable {
   List<Object> get props => [];
 }
 
-final class Initial extends ThemeState {
-  const Initial();
+final class ThemeInit extends ThemeState {
+  const ThemeInit();
 }
 
 final class ThemeDefined extends ThemeState {
