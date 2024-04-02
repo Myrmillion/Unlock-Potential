@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// Generated thanks to the Material Theme Builder tool by Material Design :
 /// https://m3.material.io/theme-builder#/custom
-const lightColorScheme = ColorScheme(
+const lightScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Color(0xFF00629E),
   onPrimary: Color(0xFFFFFFFF),
@@ -38,7 +38,7 @@ const lightColorScheme = ColorScheme(
 
 /// Generated thanks to the Material Theme Builder tool by Material Design :
 /// https://m3.material.io/theme-builder#/custom
-const darkColorScheme = ColorScheme(
+const darkScheme = ColorScheme(
   brightness: Brightness.dark,
   primary: Color(0xFF9ACBFF),
   onPrimary: Color(0xFF003355),

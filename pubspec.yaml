@@ -13,6 +13,9 @@ dependencies:
   device_info_plus: ^10.0.1
   sensors_plus: ^5.0.0
   battery_plus: ^6.0.0
+  shared_preferences: ^2.2.2
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
   
 dev_dependencies:
   flutter_test:

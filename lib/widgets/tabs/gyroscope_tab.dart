@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sensors_plus/sensors_plus.dart';
-import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/utils/utils.dart';
 import 'package:unlock_potential/widgets/title_value_widget.dart';
 
 class GyroscopeTab extends StatelessWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:unlock_potential/utils.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unlock_potential/utils/theme_cubit.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -22,7 +23,7 @@ class DrawerWidget extends StatelessWidget {
                       const Spacer(flex: 2),
                       Text(
                         'Unlock Potential',
-                        style: textTheme.titleLarge?.copyWith(fontSize: 25.0),
+                        style: textTheme.titleLarge,
                       ),
                       const Spacer(flex: 1),
                     ],
@@ -56,14 +57,18 @@ class DrawerWidget extends StatelessWidget {
                   onTap: () => Navigator.popAndPushNamed(context, '/about'),
                 ),
               ),
-              Placeholder(
-                color: Colors.red.shade800,
-                strokeWidth: 3.0,
-                child: IconButton(
-                  icon: const Icon(Icons.lightbulb),
-                  onPressed: () => Utils.simpleSnackBar(
-                      context, 'Work in progress, come back later... !'),
-                ),
+              BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (_, state) {
+                  if (state is ThemeDefined) {
+                    return IconButton(
+                      icon: Icon(
+                        state.isDark ? Icons.light_mode : Icons.dark_mode,
+                      ),
+                      onPressed: () => context.read<ThemeCubit>().toggleTheme(),
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
               ),
             ],
           ),
