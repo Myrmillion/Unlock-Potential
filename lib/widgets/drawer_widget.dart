@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:unlock_potential/utils/toggle_theme/theme_cubit.dart';
+import 'package:unlock_potential/utils/theme_cubit.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -23,7 +23,7 @@ class DrawerWidget extends StatelessWidget {
                       const Spacer(flex: 2),
                       Text(
                         'Unlock Potential',
-                        style: textTheme.titleLarge?.copyWith(fontSize: 25.0),
+                        style: textTheme.titleLarge,
                       ),
                       const Spacer(flex: 1),
                     ],

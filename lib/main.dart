@@ -3,7 +3,7 @@ import 'package:unlock_potential/pages/about_page.dart';
 import 'package:unlock_potential/pages/battery_page.dart';
 import 'package:unlock_potential/pages/device_page.dart';
 import 'package:unlock_potential/pages/home_page.dart';
-import 'package:unlock_potential/utils/toggle_theme/theme_cubit.dart';
+import 'package:unlock_potential/utils/theme_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'utils/color_schemes.g.dart';
