@@ -29,7 +29,7 @@ class UnlockPotential extends StatelessWidget {
           return MaterialApp(
             title: 'Sensor Usage',
             debugShowCheckedModeBanner: false,
-            themeMode: state.themeMode,
+            themeMode: state.mode,
             theme: ThemeData(useMaterial3: true, colorScheme: lightScheme),
             darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme),
             initialRoute: '/',

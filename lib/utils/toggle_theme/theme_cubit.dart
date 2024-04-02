@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Cubit
@@ -16,26 +16,26 @@ class ThemeCubit extends Cubit<ThemeState> {
   /// Initialize the theme.
   void _init() async {
     final prefs = await SharedPreferences.getInstance();
-    late final bool useDark;
+    late final bool isDark;
 
     if (prefs.containsKey('dark-mode')) {
-      useDark = prefs.getBool('dark-mode') ?? false;
+      isDark = prefs.getBool('dark-mode') ?? false;
     } else {
       final brightness = PlatformDispatcher.instance.platformBrightness;
-      useDark = (brightness == Brightness.dark);
+      isDark = (brightness == Brightness.dark);
     }
 
-    await prefs.setBool('dark-mode', useDark);
-    emit(ThemeDefined(useDark));
+    await prefs.setBool('dark-mode', isDark);
+    emit(ThemeDefined(isDark));
   }
 
   /// Toggle the theme.
   Future<void> toggleTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    final useDark = prefs.getBool('dark-mode') ?? false;
+    final isDark = prefs.getBool('dark-mode') ?? false;
 
-    await prefs.setBool('dark-mode', !useDark);
-    emit(ThemeDefined(!useDark));
+    await prefs.setBool('dark-mode', !isDark);
+    emit(ThemeDefined(!isDark));
   }
 }
 
@@ -55,11 +55,11 @@ final class Initial extends ThemeState {
 }
 
 final class ThemeDefined extends ThemeState {
-  ThemeDefined(this.useDark);
+  ThemeDefined(this.isDark);
 
-  final bool useDark;
-  late final ThemeMode themeMode = useDark ? ThemeMode.dark : ThemeMode.light;
+  final bool isDark;
+  late final ThemeMode mode = isDark ? ThemeMode.dark : ThemeMode.light;
 
   @override
-  List<Object> get props => [useDark, themeMode];
+  List<Object> get props => [isDark, mode];
 }

@@ -62,7 +62,7 @@ class DrawerWidget extends StatelessWidget {
                   if (state is ThemeDefined) {
                     return IconButton(
                       icon: Icon(
-                        state.useDark ? Icons.light_mode : Icons.dark_mode,
+                        state.isDark ? Icons.light_mode : Icons.dark_mode,
                       ),
                       onPressed: () => context.read<ThemeCubit>().toggleTheme(),
                     );
