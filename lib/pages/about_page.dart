@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/img/logo.png', height: 200),
+            Image.asset('assets/icon/logo.png', height: 200),
             const SizedBox(height: 20.0),
             Text(
               'Unlock Potential',
