@@ -4,7 +4,7 @@ import 'package:unlock_potential/pages/battery_page.dart';
 import 'package:unlock_potential/pages/device_page.dart';
 import 'package:unlock_potential/pages/home_page.dart';
 
-import 'color_schemes.g.dart';
+import 'utils/color_schemes.g.dart';
 import 'pages/sensor_page.dart';
 
 void main() {

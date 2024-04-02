@@ -1,6 +1,6 @@
 import 'package:battery_plus/battery_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/utils/utils.dart';
 import 'package:unlock_potential/widgets/title_value_widget.dart';
 
 class BatteryPage extends StatefulWidget {

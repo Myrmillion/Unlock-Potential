@@ -1,7 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/utils/utils.dart';
 
 class DevicePage extends StatefulWidget {
   const DevicePage({super.key});

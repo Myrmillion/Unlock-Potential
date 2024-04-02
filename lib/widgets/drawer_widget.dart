@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/utils/utils.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});

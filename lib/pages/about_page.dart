@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unlock_potential/utils.dart';
+import 'package:unlock_potential/utils/utils.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
