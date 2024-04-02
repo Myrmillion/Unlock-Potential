@@ -16,6 +16,8 @@ dependencies:
   shared_preferences: ^2.2.2
   flutter_bloc: ^8.1.5
   equatable: ^2.0.5
+  rename: ^3.0.2
+  flutter_launcher_icons: ^0.13.1
   
 dev_dependencies:
   flutter_test:
@@ -25,4 +27,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/icon/
     - assets/img/
+
+flutter_launcher_icons:
+  android: true
+  image_path_android: "assets/icon/logo.png"
+  adaptive_icon_background: "assets/icon/logo_back.png"
+  adaptive_icon_foreground: "assets/icon/logo_front.png" # foreground is a png defined in a zone that is 38.8% of the background
+  background_color_ios: "#1c8adb"
+  ios: true
+  image_path_ios: "assets/icon/logo_rectangle.png"
+  remove_alpha_ios: true

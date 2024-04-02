@@ -19,7 +19,7 @@ class DrawerWidget extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset("assets/img/logo.png", height: 72.0),
+                      Image.asset("assets/icon/logo.png", height: 72.0),
                       const Spacer(flex: 2),
                       Text(
                         'Unlock Potential',
