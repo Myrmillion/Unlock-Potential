@@ -1,4 +1,4 @@
-package com.example.unlock_potential
+package ch.myrmillion.UnlockPotential
 
 import io.flutter.embedding.android.FlutterActivity
 
