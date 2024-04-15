@@ -21,22 +21,22 @@ class AboutPage extends StatelessWidget {
           future: PackageInfo.fromPlatform(),
           builder: (_, snapshot) => Utils.futureBuilding(
             snap: snapshot,
-            builder: (info) => Column(
+            builder: (appInfo) => Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset('assets/icon/logo.png', height: 200),
                 const SizedBox(height: 20.0),
                 Text(
-                  info.appName,
+                  appInfo.appName,
                   style: textTheme.headlineLarge,
                 ),
                 Text(
-                  info.packageName,
+                  appInfo.packageName,
                   style: textTheme.labelSmall?.copyWith(color: Colors.grey),
                 ),
                 const SizedBox(height: 40.0),
                 Text(
-                  'App Version: ${info.version}+${info.buildNumber}',
+                  'App Version: ${appInfo.version}+${appInfo.buildNumber}',
                   style: textTheme.bodyLarge,
                 ),
                 Text(
