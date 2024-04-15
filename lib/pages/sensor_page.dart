@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unlock_potential/utils/decimal_cubit.dart';
 import 'package:unlock_potential/widgets/tabs/accelerometer_tab.dart';
 import 'package:unlock_potential/widgets/tabs/gyroscope_tab.dart';
 import 'package:unlock_potential/widgets/tabs/magnetometer_tab.dart';
@@ -8,6 +10,20 @@ class SensorsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => DecimalCubit(),
+      child: const _SensorsPage(),
+    );
+  }
+}
+
+class _SensorsPage extends StatelessWidget {
+  const _SensorsPage();
+
+  @override
+  Widget build(BuildContext context) {
+    final decimalCubit = context.read<DecimalCubit>();
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -35,14 +51,14 @@ class SensorsPage extends StatelessWidget {
           children: [
             FloatingActionButton(
               heroTag: 'sensorPage-btnIncrease',
-              onPressed: () {},
-              child: const Icon(Icons.add),
+              onPressed: decimalCubit.increase,
+              child: const Icon(Icons.exposure_plus_1),
             ),
             const SizedBox(width: 10.0),
             FloatingActionButton(
               heroTag: 'sensorPage-btnDecrease',
-              onPressed: () {},
-              child: const Icon(Icons.remove),
+              onPressed: decimalCubit.decrease,
+              child: const Icon(Icons.exposure_minus_1),
             ),
           ],
         ),

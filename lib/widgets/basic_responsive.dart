@@ -10,33 +10,28 @@ class BasicResponsive extends StatelessWidget {
   const BasicResponsive({
     super.key,
     required this.children,
-    this.mainAxisAlignment = MainAxisAlignment.center,
+    this.mainAxisAlignment = MainAxisAlignment.start,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.margin,
   });
 
   final List<Widget> children;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
-  final EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      child: LayoutBuilder(builder: (_, constraints) {
-        return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: constraints.maxHeight),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: mainAxisAlignment,
-              crossAxisAlignment: crossAxisAlignment,
-              children: children,
-            ),
+    return LayoutBuilder(builder: (_, constraints) {
+      return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: constraints.maxHeight),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: mainAxisAlignment,
+            crossAxisAlignment: crossAxisAlignment,
+            children: children,
           ),
-        );
-      }),
-    );
+        ),
+      );
+    });
   }
 }

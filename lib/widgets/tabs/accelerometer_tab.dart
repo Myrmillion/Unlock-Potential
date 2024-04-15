@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sensors_plus/sensors_plus.dart';
+import 'package:unlock_potential/utils/decimal_cubit.dart';
 import 'package:unlock_potential/utils/utils.dart';
 import 'package:unlock_potential/widgets/intrisic_responsive.dart';
 import 'package:unlock_potential/widgets/title_value_widget.dart';
@@ -43,21 +45,33 @@ class _AccelerometerTabState extends State<AccelerometerTab> {
       stream: useRaw ? raw : user,
       builder: (_, snapshot) => Utils.streamBuilding(
         snap: snapshot,
-        builder: (accelerometer) => Container(
-          margin: const EdgeInsets.all(8.0),
-          child: IntrisicResponsive(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              buildSwitcher(),
-              const Spacer(),
-              TitleValue(title: "X", value: accelerometer[0]),
-              const Spacer(flex: 2),
-              TitleValue(title: "Y", value: accelerometer[1]),
-              const Spacer(flex: 2),
-              TitleValue(title: "Z", value: accelerometer[2]),
-              const Spacer(flex: 2),
-            ],
-          ),
+        builder: (accelerometer) => BlocBuilder<DecimalCubit, int>(
+          builder: (_, decimal) {
+            return Container(
+              margin: const EdgeInsets.all(8.0),
+              child: IntrinsicResponsive(
+                children: [
+                  buildSwitcher(),
+                  const Spacer(),
+                  TitleValue(
+                    title: "X",
+                    value: accelerometer[0].toStringAsFixed(decimal),
+                  ),
+                  const Spacer(flex: 2),
+                  TitleValue(
+                    title: "Y",
+                    value: accelerometer[1].toStringAsFixed(decimal),
+                  ),
+                  const Spacer(flex: 2),
+                  TitleValue(
+                    title: "Z",
+                    value: accelerometer[2].toStringAsFixed(decimal),
+                  ),
+                  const Spacer(flex: 2),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

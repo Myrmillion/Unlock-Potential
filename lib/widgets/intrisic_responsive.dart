@@ -9,39 +9,34 @@ import 'package:flutter/material.dart';
 /// and only in cases requiring a more complex layout (if [mainAxisAlignment]
 /// and [crossAxisAlignment] are enough, then use [BasicResponsive] instead).\
 /// See : https://api.flutter.dev/flutter/widgets/SingleChildScrollView-class.html
-class IntrisicResponsive extends StatelessWidget {
-  const IntrisicResponsive({
+class IntrinsicResponsive extends StatelessWidget {
+  const IntrinsicResponsive({
     super.key,
     required this.children,
-    this.mainAxisAlignment = MainAxisAlignment.center,
+    this.mainAxisAlignment = MainAxisAlignment.start,
     this.crossAxisAlignment = CrossAxisAlignment.center,
-    this.margin,
   });
 
   final List<Widget> children;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
-  final EdgeInsets? margin;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      child: LayoutBuilder(builder: (_, constraints) {
-        return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: constraints.maxHeight),
-            child: IntrinsicHeight(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: mainAxisAlignment,
-                crossAxisAlignment: crossAxisAlignment,
-                children: children,
-              ),
+    return LayoutBuilder(builder: (_, constraints) {
+      return SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: constraints.maxHeight),
+          child: IntrinsicHeight(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: mainAxisAlignment,
+              crossAxisAlignment: crossAxisAlignment,
+              children: children,
             ),
           ),
-        );
-      }),
-    );
+        ),
+      );
+    });
   }
 }

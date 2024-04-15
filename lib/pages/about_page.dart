@@ -22,9 +22,11 @@ class AboutPage extends StatelessWidget {
         builder: (_, snapshot) => Utils.futureBuilding(
           snap: snapshot,
           builder: (info) {
-            return Center(
+            return Container(
+              margin: const EdgeInsets.all(8.0),
+              width: double.infinity,
               child: BasicResponsive(
-                margin: const EdgeInsets.all(8.0),
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/icon/logo.png', height: 200),
                   const SizedBox(height: 20.0),
@@ -45,6 +47,7 @@ class AboutPage extends StatelessWidget {
                     'Contact us: unlock@potential.com',
                     style: textTheme.bodyLarge,
                   ),
+                  const SizedBox(height: 5.0),
                   TextButton(
                     onPressed: () => Utils.simpleSnackBar(
                       context,
