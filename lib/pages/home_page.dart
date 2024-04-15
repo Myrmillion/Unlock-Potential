@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:unlock_potential/widgets/drawer_widget.dart';
+import 'package:unlock_potential/widgets/tailored_drawer_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
       // AppBar
       appBar: AppBar(title: const Text('Home')),
       // Drawer
-      drawer: const DrawerWidget(),
+      drawer: const TailoredDrawer(),
       drawerEdgeDragWidth: MediaQuery.of(context).size.width / 2,
       // Body
       body: ListView(

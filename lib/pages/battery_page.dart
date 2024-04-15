@@ -1,6 +1,7 @@
 import 'package:battery_plus/battery_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:unlock_potential/utils/utils.dart';
+import 'package:unlock_potential/widgets/intrisic_responsive.dart';
 import 'package:unlock_potential/widgets/title_value_widget.dart';
 
 class BatteryPage extends StatefulWidget {
@@ -22,21 +23,23 @@ class _BatteryPageState extends State<BatteryPage> {
         automaticallyImplyLeading: true,
       ),
       // Body
-      body: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child: Stack(
-              children: [
-                Positioned.fill(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Container(
+        margin: const EdgeInsets.all(8.0),
+        child: IntrinsicResponsive(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Stack(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       FutureBuilder(
                         future: battery.batteryLevel,
                         builder: (_, snapshot) => Utils.futureBuilding(
                           snap: snapshot,
-                          builder: (level) => TitleValueWidget(
+                          builder: (level) => TitleValue(
                             title: "Battery level",
                             value: "$level%",
                           ),
@@ -46,7 +49,7 @@ class _BatteryPageState extends State<BatteryPage> {
                         future: battery.isInBatterySaveMode,
                         builder: (_, snapshot) => Utils.futureBuilding(
                           snap: snapshot,
-                          builder: (isSaving) => TitleValueWidget(
+                          builder: (isSaving) => TitleValue(
                             title: "Save mode",
                             value: isSaving ? 'Enabled' : 'Disabled',
                           ),
@@ -54,35 +57,36 @@ class _BatteryPageState extends State<BatteryPage> {
                       ),
                     ],
                   ),
-                ),
-                Positioned(
-                  bottom: 0.5,
-                  right: 8.0,
-                  child: FloatingActionButton(
-                    onPressed: () => setState(() {}), // Refresh
-                    child: const Icon(Icons.refresh),
+                  Positioned(
+                    bottom: 0.0,
+                    right: 8.0,
+                    child: FloatingActionButton(
+                      heroTag: 'batteryPage-btnRefresh',
+                      onPressed: () => setState(() {}), // Refresh
+                      child: const Icon(Icons.refresh),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const Divider(),
-          Expanded(
-            flex: 2,
-            child: Center(
-              child: StreamBuilder(
-                stream: battery.onBatteryStateChanged,
-                builder: (_, snapshot) => Utils.streamBuilding(
-                  snap: snapshot,
-                  builder: (state) => TitleValueWidget(
-                    title: "Battery status",
-                    value: state.name,
+            const Divider(),
+            Expanded(
+              flex: 2,
+              child: Center(
+                child: StreamBuilder(
+                  stream: battery.onBatteryStateChanged,
+                  builder: (_, snapshot) => Utils.streamBuilding(
+                    snap: snapshot,
+                    builder: (state) => TitleValue(
+                      title: "Battery status",
+                      value: state.name,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

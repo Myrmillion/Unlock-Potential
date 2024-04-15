@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unlock_potential/utils/theme_cubit.dart';
 
-class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+class TailoredDrawer extends StatelessWidget {
+  const TailoredDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,7 @@ class DrawerWidget extends StatelessWidget {
                     children: [
                       Image.asset("assets/icon/logo.png", height: 72.0),
                       const Spacer(flex: 2),
-                      Text(
-                        'Unlock Potential',
-                        style: textTheme.titleLarge,
-                      ),
+                      Text('Unlock Potential', style: textTheme.titleLarge),
                       const Spacer(flex: 1),
                     ],
                   ),
@@ -64,7 +61,7 @@ class DrawerWidget extends StatelessWidget {
                       icon: Icon(
                         state.isDark ? Icons.light_mode : Icons.dark_mode,
                       ),
-                      onPressed: () => context.read<ThemeCubit>().toggleTheme(),
+                      onPressed: context.read<ThemeCubit>().toggleTheme,
                     );
                   }
                   return const SizedBox.shrink();
