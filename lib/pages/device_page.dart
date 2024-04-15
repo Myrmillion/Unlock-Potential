@@ -55,6 +55,7 @@ class _DevicePageState extends State<DevicePage> {
       ),
       // FloatingActionButton
       floatingActionButton: FloatingActionButton(
+        heroTag: 'devicePage-btnRefresh',
         onPressed: () => setState(() {}), // Refresh
         child: const Icon(Icons.refresh),
       ),

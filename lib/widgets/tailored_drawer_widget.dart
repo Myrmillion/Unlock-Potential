@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unlock_potential/utils/theme_cubit.dart';
 
-class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+class TailoredDrawer extends StatelessWidget {
+  const TailoredDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

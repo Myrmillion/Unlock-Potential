@@ -36,7 +36,7 @@ class _BatteryPageState extends State<BatteryPage> {
                         future: battery.batteryLevel,
                         builder: (_, snapshot) => Utils.futureBuilding(
                           snap: snapshot,
-                          builder: (level) => TitleValueWidget(
+                          builder: (level) => TitleValue(
                             title: "Battery level",
                             value: "$level%",
                           ),
@@ -46,7 +46,7 @@ class _BatteryPageState extends State<BatteryPage> {
                         future: battery.isInBatterySaveMode,
                         builder: (_, snapshot) => Utils.futureBuilding(
                           snap: snapshot,
-                          builder: (isSaving) => TitleValueWidget(
+                          builder: (isSaving) => TitleValue(
                             title: "Save mode",
                             value: isSaving ? 'Enabled' : 'Disabled',
                           ),
@@ -59,6 +59,7 @@ class _BatteryPageState extends State<BatteryPage> {
                   bottom: 0.5,
                   right: 8.0,
                   child: FloatingActionButton(
+                    heroTag: 'batteryPage-btnRefresh',
                     onPressed: () => setState(() {}), // Refresh
                     child: const Icon(Icons.refresh),
                   ),
@@ -74,7 +75,7 @@ class _BatteryPageState extends State<BatteryPage> {
                 stream: battery.onBatteryStateChanged,
                 builder: (_, snapshot) => Utils.streamBuilding(
                   snap: snapshot,
-                  builder: (state) => TitleValueWidget(
+                  builder: (state) => TitleValue(
                     title: "Battery status",
                     value: state.name,
                   ),

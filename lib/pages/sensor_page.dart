@@ -23,9 +23,28 @@ class SensorsPage extends StatelessWidget {
           ),
           automaticallyImplyLeading: true,
         ),
+
         // Body
         body: const TabBarView(
           children: [AccelerometerTab(), GyroscopeTab(), MagnetometerTab()],
+        ),
+
+        // Floating Action Button
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              heroTag: 'sensorPage-btnIncrease',
+              onPressed: () {},
+              child: const Icon(Icons.add),
+            ),
+            const SizedBox(width: 10.0),
+            FloatingActionButton(
+              heroTag: 'sensorPage-btnDecrease',
+              onPressed: () {},
+              child: const Icon(Icons.remove),
+            ),
+          ],
         ),
       ),
     );

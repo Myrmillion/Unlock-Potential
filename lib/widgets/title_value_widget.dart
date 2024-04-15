@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TitleValueWidget extends StatelessWidget {
-  const TitleValueWidget({
+class TitleValue extends StatelessWidget {
+  const TitleValue({
     required this.title,
     required this.value,
     super.key,
