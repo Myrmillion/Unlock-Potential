@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:unlock_potential/utils/utils.dart';
 
 class AboutPage extends StatelessWidget {
@@ -6,6 +7,8 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Scaffold(
       // AppBar
       appBar: AppBar(
@@ -14,33 +17,45 @@ class AboutPage extends StatelessWidget {
       ),
       // Body
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset('assets/icon/logo.png', height: 200),
-            const SizedBox(height: 20.0),
-            Text(
-              'Unlock Potential',
-              style: Theme.of(context).textTheme.headlineLarge,
+        child: FutureBuilder(
+          future: PackageInfo.fromPlatform(),
+          builder: (_, snapshot) => Utils.futureBuilding(
+            snap: snapshot,
+            builder: (info) => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/icon/logo.png', height: 200),
+                const SizedBox(height: 20.0),
+                Text(
+                  info.appName,
+                  style: textTheme.headlineLarge,
+                ),
+                Text(
+                  info.packageName,
+                  style: textTheme.labelSmall?.copyWith(color: Colors.grey),
+                ),
+                const SizedBox(height: 40.0),
+                Text(
+                  'App Version: ${info.version}+${info.buildNumber}',
+                  style: textTheme.bodyLarge,
+                ),
+                Text(
+                  'Contact us: unlock@potential.com',
+                  style: textTheme.bodyLarge,
+                ),
+                TextButton(
+                  onPressed: () => Utils.simpleSnackBar(
+                    context,
+                    'This app is for academic purposes only.',
+                  ),
+                  child: const Text(
+                    'Terms of Use',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 50.0),
-            const Text(
-              'App Version: 0.2.0', // Eventual todo : use package_info_plus.
-              style: TextStyle(fontSize: 16),
-            ),
-            const Text(
-              'Contact us: unlock@potential.com',
-              style: TextStyle(fontSize: 16),
-            ),
-            TextButton(
-              onPressed: () => Utils.simpleSnackBar(
-                context,
-                'This app is for academic purposes only.',
-              ),
-              child: const Text('Terms of Use', style: TextStyle(fontSize: 16)),
-            ),
-          ],
+          ),
         ),
       ),
     );

@@ -30,7 +30,10 @@ class UnlockPotential extends StatelessWidget {
             title: 'Sensor Usage',
             debugShowCheckedModeBanner: false,
             themeMode: state.mode,
-            theme: ThemeData(useMaterial3: true, colorScheme: lightScheme),
+            theme: ThemeData(
+              useMaterial3: true,
+              colorScheme: lightScheme,
+            ),
             darkTheme: ThemeData(useMaterial3: true, colorScheme: darkScheme),
             initialRoute: '/',
             routes: {
