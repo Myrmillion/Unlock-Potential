@@ -38,6 +38,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(title: const Text('Home')),
       // Drawer
       drawer: const DrawerWidget(),
+      drawerEdgeDragWidth: MediaQuery.of(context).size.width / 2,
       // Body
       body: ListView(
         padding: const EdgeInsets.all(10.0),
