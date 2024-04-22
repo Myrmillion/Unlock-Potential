@@ -1,0 +1,16 @@
+{
+    "@@locale" : "en",
+
+    "appName": "Unlock Potential",
+
+    "homeTitle": "Home",
+
+    "deviceTitle": "Device",
+    "deviceSubtitle": "Find information about your device",
+
+    "sensorsTitle": "Sensors",
+    "sensorsSubtitle": "See your device access its sensors",
+
+    "batteryTitle": "Battery",
+    "batterySubtitle": "Check your device battery status"
+}

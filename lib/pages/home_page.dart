@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unlock_potential/generated/l10n.dart';
 import 'package:unlock_potential/widgets/tailored_drawer_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,9 +34,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final i10n = S.current;
+
     return Scaffold(
       // AppBar
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: Text(i10n.homeTitle)),
       // Drawer
       drawer: const TailoredDrawer(),
       drawerEdgeDragWidth: MediaQuery.of(context).size.width / 2,
@@ -44,20 +47,20 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         children: [
           buildCard(
-            title: 'Device',
-            subtitle: 'Find information about your device',
+            title: i10n.deviceTitle,
+            subtitle: i10n.deviceSubtitle,
             imgPath: 'assets/img/device.png',
             onPressed: () => Navigator.pushNamed(context, '/device'),
           ),
           buildCard(
-            title: 'Sensors',
-            subtitle: 'See your device access its sensors',
+            title: i10n.sensorsTitle,
+            subtitle: i10n.sensorsSubtitle,
             imgPath: 'assets/img/sensors.png',
             onPressed: () => Navigator.pushNamed(context, '/sensors'),
           ),
           buildCard(
-            title: 'Battery',
-            subtitle: 'Check your device battery status',
+            title: i10n.batteryTitle,
+            subtitle: i10n.batterySubtitle,
             imgPath: 'assets/img/battery.jpg',
             onPressed: () => Navigator.pushNamed(context, '/battery'),
           ),

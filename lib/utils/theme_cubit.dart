@@ -13,9 +13,11 @@ class ThemeCubit extends Cubit<ThemeState> {
     _init();
   }
 
+  late final SharedPreferences prefs;
+
   /// Initialize the theme.
   void _init() async {
-    final prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
     late final bool isDark;
 
     if (prefs.containsKey('dark-mode')) {
@@ -31,9 +33,7 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   /// Toggle the theme.
   Future<void> toggleTheme() async {
-    final prefs = await SharedPreferences.getInstance();
     final isDark = prefs.getBool('dark-mode') ?? false;
-
     await prefs.setBool('dark-mode', !isDark);
     emit(ThemeDefined(!isDark));
   }
