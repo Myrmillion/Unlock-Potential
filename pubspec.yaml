@@ -19,6 +19,8 @@ dependencies:
   equatable: ^2.0.5
   rename: ^3.0.2
   flutter_launcher_icons: ^0.13.1
+  intl: ^0.19.0
+  intl_utils: ^2.8.7
   
 dev_dependencies:
   flutter_test:
