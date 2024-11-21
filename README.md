@@ -8,15 +8,15 @@ Unlock Potential is a simple template project used to demonstrate the access and
 
 Typically, throughout this application, the following informations and sensors of the phone will be utilized :
 
-- **Device information** (phone model, phone manufacturer, system version, ...) ;
-- **Sensors** (accelerometer, gyroscope and magnetometer) ;
-- **Batery information** (battery level, save mode activation status and battery status) ;
-- **Package information** (app name, package name, app version, build number, ...).
+- **Device information** (phone model, phone manufacturer, system version, etc).
+- **Sensors** (accelerometer, gyroscope and magnetometer).
+- **Batery information** (battery level, save mode activation status and battery status).
+- **Package information** (app name, package name, app version, build number, etc).
 
 And, as such, this project makes use of the following plugins in order to access the aformentioned phone capabilities :
 
-- [**device_info_plus**](https://pub.dev/packages/device_info_plus) ;
-- [**sensors_plus**](https://pub.dev/packages/sensors_plus) ;
-- [**battery_plus**](https://pub.dev/packages/battery_plus) ;
+- [**device_info_plus**](https://pub.dev/packages/device_info_plus).
+- [**sensors_plus**](https://pub.dev/packages/sensors_plus).
+- [**battery_plus**](https://pub.dev/packages/battery_plus).
 - [**package_info_plus**](https://pub.dev/packages/package_info_plus).
 
