@@ -1,3 +1,5 @@
+<div align="justify">
+
 # Unlock Potential
 
 Unlock Potential is a simple template project used to demonstrate the access and use of the possibilities a phone has to offer.
@@ -20,3 +22,4 @@ And, as such, this project makes use of the following plugins in order to access
 - [**battery_plus**](https://pub.dev/packages/battery_plus).
 - [**package_info_plus**](https://pub.dev/packages/package_info_plus).
 
+</div>
